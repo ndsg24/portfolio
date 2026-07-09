@@ -2,11 +2,30 @@ import { motion } from 'framer-motion'
 import { fadeUp, stagger } from '../lib/animation'
 import { techLogos } from '../lib/techLogos'
 
+const fallbackLabels = {
+  'SQL Server': 'SQL',
+  'Azure Service Bus': 'ASB',
+  'AWS': 'AWS',
+  'Azure': 'AZ',
+  'Microservices': 'MS',
+  'Microservicios': 'MS',
+  'Microserviços': 'MS',
+  'TDD': 'TDD',
+  'CQRS': 'CQ',
+  'DDD': 'DDD',
+  'Arquitectura Hexagonal': 'HX',
+  'Hexagonal Architecture': 'HX',
+  'Arquitetura Hexagonal': 'HX',
+  'Testing unitario/integración/e2e': 'TST',
+  'Unit/integration/e2e testing': 'TST',
+  'Testing unitário/integração/e2e': 'TST',
+}
+
 function TechLogo({ name }) {
   const logo = techLogos[name]
 
   if (!logo) {
-    return <span className="tech-fallback">{name.slice(0, 2).toUpperCase()}</span>
+    return <span className="tech-fallback">{fallbackLabels[name] || name.slice(0, 2).toUpperCase()}</span>
   }
 
   return (

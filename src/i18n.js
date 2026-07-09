@@ -113,6 +113,7 @@ const resources = {
       contact: {
         title: 'Hablemos de tu plataforma',
         text: 'Disponible para roles Senior Full Stack, Tech Lead, referente técnico o consultoría de arquitectura.',
+        cta: 'Escríbeme',
         email: 'nelsondaniel.dev@gmail.com',
       },
       footer: 'Concepción, Chile / Español nativo / Portugués C1 / Inglés B2',
@@ -229,6 +230,7 @@ const resources = {
       contact: {
         title: 'Let’s talk about your platform',
         text: 'Available for Senior Full Stack, Tech Lead, technical reference, or architecture consulting roles.',
+        cta: 'Email me',
         email: 'nelsondaniel.dev@gmail.com',
       },
       footer: 'Concepcion, Chile / Native Spanish / Portuguese C1 / English B2',
@@ -345,6 +347,7 @@ const resources = {
       contact: {
         title: 'Vamos falar da sua plataforma',
         text: 'Disponível para posições Senior Full Stack, Tech Lead, referência técnica ou consultoria de arquitetura.',
+        cta: 'Enviar email',
         email: 'nelsondaniel.dev@gmail.com',
       },
       footer: 'Concepción, Chile / Espanhol nativo / Português C1 / Inglês B2',

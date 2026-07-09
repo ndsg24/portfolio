@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { Code2, ExternalLink, Mail } from 'lucide-react'
+import { Mail } from 'lucide-react'
+import { GitHubLogo, LinkedInLogo } from './BrandIcons'
 import { fadeUp, stagger } from '../lib/animation'
 
 function Contact({ t }) {
@@ -20,14 +21,14 @@ function Contact({ t }) {
       <motion.div className="contact-actions" variants={fadeUp}>
         <a className="button primary" href={`mailto:${t('contact.email')}`}>
           <Mail size={18} aria-hidden="true" />
-          {t('contact.email')}
+          {t('contact.cta')}
         </a>
         <a className="icon-link" href="https://www.linkedin.com/in/nelson-daniel-dev/" target="_blank" rel="noreferrer">
-          <ExternalLink size={18} aria-hidden="true" />
+          <LinkedInLogo />
           LinkedIn
         </a>
         <a className="icon-link" href="https://github.com/" target="_blank" rel="noreferrer">
-          <Code2 size={18} aria-hidden="true" />
+          <GitHubLogo />
           GitHub
         </a>
       </motion.div>
