@@ -5,7 +5,7 @@ function Header({ currentLanguage, onLanguageChange, t }) {
     <header className="topbar">
       <a className="brand" href="#home" aria-label="Nelson Daniel Silva Gutierrez">
         <span>NDSG</span>
-        <strong>Nelson Silva</strong>
+        <strong>Nelson Daniel</strong>
       </a>
       <nav className="nav-links" aria-label="Primary navigation">
         <a href="#work">{t('nav.work')}</a>
@@ -13,6 +13,10 @@ function Header({ currentLanguage, onLanguageChange, t }) {
         <a href="#stack">{t('nav.stack')}</a>
         <a href="#contact">{t('nav.contact')}</a>
       </nav>
+      <a className="availability-chip" href="#contact">
+        <span />
+        {t('nav.available')}
+      </a>
       <LanguageSwitcher currentLanguage={currentLanguage} onChange={onLanguageChange} />
     </header>
   )

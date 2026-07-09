@@ -26,15 +26,18 @@ function Experience({ roles, t }) {
         variants={stagger}
       >
         {roles.map((role) => (
-          <motion.article className="role-item" key={`${role.company}-${role.period}`} variants={fadeUp}>
-            <div>
+          <motion.article className="case-card" key={`${role.company}-${role.period}`} variants={fadeUp}>
+            <div className="case-meta">
               <span>{role.period}</span>
               <h3>{role.company}</h3>
             </div>
-            <div>
+            <div className="case-body">
               <strong>{role.title}</strong>
               <p>{role.text}</p>
             </div>
+            <a href="#contact" aria-label={`Contact about ${role.company}`}>
+              →
+            </a>
           </motion.article>
         ))}
       </motion.div>

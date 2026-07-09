@@ -9,16 +9,18 @@ const resources = {
         principles: 'Criterio',
         stack: 'Stack',
         contact: 'Contacto',
+        available: 'Disponible',
       },
       hero: {
         eyebrow: 'Senior Full Stack Engineer / Tech Lead',
         statement:
-          'Ingeniero full stack senior y referente técnico con 7+ años construyendo plataformas escalables para retail, logística, marketplace, pricing, fidelización y operaciones LATAM.',
+          'Referente técnico para plataformas que no pueden fallar: retail, logística, marketplace, pricing, fidelización y operaciones LATAM.',
         ctaPrimary: 'Contactar',
         ctaSecondary: 'Ver experiencia',
         signalKicker: 'Actualmente',
         signalMain: 'Senior Consultant en Amaris',
         signalNote: 'Arquitectura hexagonal, DDD, CQRS, microservicios y liderazgo técnico sin ruido.',
+        traits: ['Arquitectura', 'Delivery', 'Mentoría', 'Producto'],
       },
       highlights: [
         { value: '7+ años', label: 'diseñando, construyendo y liderando software de negocio' },
@@ -66,18 +68,22 @@ const resources = {
         title: 'Minimalismo técnico: menos teatro, más sistema.',
         items: [
           {
+            kicker: 'Arquitectura',
             title: 'Arquitectura que se opera',
             text: 'Hexagonal, DDD y CQRS cuando resuelven complejidad real, no como decoración.',
           },
           {
+            kicker: 'Full stack',
             title: 'Full stack sin frontera falsa',
             text: 'Frontend, backend, datos, cloud, integración y observabilidad conectados al mismo objetivo.',
           },
           {
+            kicker: 'Equipo',
             title: 'Liderazgo que desbloquea',
             text: 'Mentoría, estándares, code review y decisiones explícitas para que el equipo avance.',
           },
           {
+            kicker: 'Entrega',
             title: 'Delivery con criterio',
             text: 'Releases pequeños, trazables y sostenibles, cuidando impacto de negocio y deuda técnica.',
           },
@@ -119,16 +125,18 @@ const resources = {
         principles: 'Judgment',
         stack: 'Stack',
         contact: 'Contact',
+        available: 'Available',
       },
       hero: {
         eyebrow: 'Senior Full Stack Engineer / Tech Lead',
         statement:
-          'Senior full stack engineer and technical reference with 7+ years building scalable platforms for retail, logistics, marketplaces, pricing, loyalty, and LATAM operations.',
+          'Technical reference for platforms that cannot fail: retail, logistics, marketplaces, pricing, loyalty, and LATAM operations.',
         ctaPrimary: 'Contact',
         ctaSecondary: 'See experience',
         signalKicker: 'Currently',
         signalMain: 'Senior Consultant at Amaris',
         signalNote: 'Hexagonal architecture, DDD, CQRS, microservices, and technical leadership without noise.',
+        traits: ['Architecture', 'Delivery', 'Mentoring', 'Product'],
       },
       highlights: [
         { value: '7+ years', label: 'designing, building, and leading business software' },
@@ -176,18 +184,22 @@ const resources = {
         title: 'Technical minimalism: less theater, more system.',
         items: [
           {
+            kicker: 'Architecture',
             title: 'Architecture that runs',
             text: 'Hexagonal architecture, DDD, and CQRS when they solve real complexity, not as decoration.',
           },
           {
+            kicker: 'Full stack',
             title: 'Full stack without fake borders',
             text: 'Frontend, backend, data, cloud, integration, and observability tied to the same goal.',
           },
           {
+            kicker: 'Team',
             title: 'Leadership that unblocks',
             text: 'Mentoring, standards, code review, and explicit decisions so the team keeps moving.',
           },
           {
+            kicker: 'Delivery',
             title: 'Delivery with judgment',
             text: 'Small, traceable, sustainable releases that protect business impact and technical debt.',
           },
@@ -229,16 +241,18 @@ const resources = {
         principles: 'Critério',
         stack: 'Stack',
         contact: 'Contato',
+        available: 'Disponível',
       },
       hero: {
         eyebrow: 'Senior Full Stack Engineer / Tech Lead',
         statement:
-          'Engenheiro full stack senior e referência técnica com 7+ anos construindo plataformas escaláveis para varejo, logística, marketplace, pricing, fidelização e operações LATAM.',
+          'Referência técnica para plataformas que não podem falhar: varejo, logística, marketplace, pricing, fidelização e operações LATAM.',
         ctaPrimary: 'Contato',
         ctaSecondary: 'Ver experiência',
         signalKicker: 'Atualmente',
         signalMain: 'Senior Consultant na Amaris',
         signalNote: 'Arquitetura hexagonal, DDD, CQRS, microserviços e liderança técnica sem ruído.',
+        traits: ['Arquitetura', 'Delivery', 'Mentoria', 'Produto'],
       },
       highlights: [
         { value: '7+ anos', label: 'desenhando, construindo e liderando software de negócio' },
@@ -286,18 +300,22 @@ const resources = {
         title: 'Minimalismo técnico: menos teatro, mais sistema.',
         items: [
           {
+            kicker: 'Arquitetura',
             title: 'Arquitetura que opera',
             text: 'Hexagonal, DDD e CQRS quando resolvem complexidade real, não como decoração.',
           },
           {
+            kicker: 'Full stack',
             title: 'Full stack sem fronteira falsa',
             text: 'Frontend, backend, dados, cloud, integração e observabilidade conectados ao mesmo objetivo.',
           },
           {
+            kicker: 'Time',
             title: 'Liderança que desbloqueia',
             text: 'Mentoria, padrões, code review e decisões explícitas para o time avançar.',
           },
           {
+            kicker: 'Entrega',
             title: 'Delivery com critério',
             text: 'Releases pequenos, rastreáveis e sustentáveis, cuidando impacto de negócio e dívida técnica.',
           },

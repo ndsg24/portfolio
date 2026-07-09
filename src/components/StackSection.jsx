@@ -2,6 +2,9 @@ import { motion } from 'framer-motion'
 import { fadeUp, stagger } from '../lib/animation'
 
 function StackSection({ groups, t }) {
+  const skills = groups.flatMap((group) => group.items)
+  const marqueeSkills = [...skills, ...skills]
+
   return (
     <motion.section
       className="section stack-section"
@@ -25,6 +28,13 @@ function StackSection({ groups, t }) {
           </motion.article>
         ))}
       </div>
+      <motion.div className="skill-rail" variants={fadeUp}>
+        <div>
+          {marqueeSkills.map((skill, index) => (
+            <span key={`${skill}-${index}`}>{skill}</span>
+          ))}
+        </div>
+      </motion.div>
     </motion.section>
   )
 }

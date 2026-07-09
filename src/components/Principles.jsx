@@ -20,7 +20,7 @@ function Principles({ items, t }) {
       <div className="principle-grid">
         {items.map((item, index) => (
           <motion.article className="principle-item" key={item.title} variants={fadeUp}>
-            <span>{String(index + 1).padStart(2, '0')}</span>
+            <span>{item.kicker || String(index + 1).padStart(2, '0')}</span>
             <h3>{item.title}</h3>
             <p>{item.text}</p>
           </motion.article>
