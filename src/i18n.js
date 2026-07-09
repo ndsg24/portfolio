@@ -29,8 +29,8 @@ const resources = {
         { value: 'LATAM', label: 'experiencia en plataformas regionales de alto impacto' },
       ],
       work: {
-        title: 'Experiencia con peso real.',
-        text: 'No vendo solo tecnología. Vendo criterio para tomar decisiones, ordenar sistemas complejos y hacer que los equipos entreguen con calidad.',
+        title: 'Experiencia técnica',
+        text: 'Roles donde lideré arquitectura, delivery, estándares y desarrollo full stack en plataformas de negocio.',
       },
       roles: [
         {
@@ -65,7 +65,7 @@ const resources = {
         },
       ],
       principles: {
-        title: 'Minimalismo técnico: menos teatro, más sistema.',
+        title: 'Cómo trabajo',
         items: [
           {
             kicker: 'Arquitectura',
@@ -90,7 +90,7 @@ const resources = {
         ],
       },
       stack: {
-        title: 'Tecnología que ya usé en producción.',
+        title: 'Stack de producción',
         groups: [
           {
             title: 'Frontend & mobile',
@@ -111,7 +111,7 @@ const resources = {
         ],
       },
       contact: {
-        title: 'Si el producto importa, la ejecución también.',
+        title: 'Hablemos de tu plataforma',
         text: 'Disponible para roles Senior Full Stack, Tech Lead, referente técnico o consultoría de arquitectura.',
         email: 'nelsondaniel.dev@gmail.com',
       },
@@ -145,8 +145,8 @@ const resources = {
         { value: 'LATAM', label: 'experience in high-impact regional platforms' },
       ],
       work: {
-        title: 'Experience with real weight.',
-        text: 'I do not sell technology alone. I bring judgment to decisions, structure complex systems, and help teams ship with quality.',
+        title: 'Technical experience',
+        text: 'Roles where I led architecture, delivery, standards, and full stack development for business platforms.',
       },
       roles: [
         {
@@ -181,7 +181,7 @@ const resources = {
         },
       ],
       principles: {
-        title: 'Technical minimalism: less theater, more system.',
+        title: 'How I work',
         items: [
           {
             kicker: 'Architecture',
@@ -206,7 +206,7 @@ const resources = {
         ],
       },
       stack: {
-        title: 'Technology I have used in production.',
+        title: 'Production stack',
         groups: [
           {
             title: 'Frontend & mobile',
@@ -227,7 +227,7 @@ const resources = {
         ],
       },
       contact: {
-        title: 'If the product matters, execution matters too.',
+        title: 'Let’s talk about your platform',
         text: 'Available for Senior Full Stack, Tech Lead, technical reference, or architecture consulting roles.',
         email: 'nelsondaniel.dev@gmail.com',
       },
@@ -261,8 +261,8 @@ const resources = {
         { value: 'LATAM', label: 'experiência em plataformas regionais de alto impacto' },
       ],
       work: {
-        title: 'Experiência com peso real.',
-        text: 'Não vendo só tecnologia. Entrego critério para decidir, organizar sistemas complexos e fazer times entregarem com qualidade.',
+        title: 'Experiência técnica',
+        text: 'Papéis onde liderei arquitetura, delivery, padrões e desenvolvimento full stack em plataformas de negócio.',
       },
       roles: [
         {
@@ -297,7 +297,7 @@ const resources = {
         },
       ],
       principles: {
-        title: 'Minimalismo técnico: menos teatro, mais sistema.',
+        title: 'Como trabalho',
         items: [
           {
             kicker: 'Arquitetura',
@@ -322,7 +322,7 @@ const resources = {
         ],
       },
       stack: {
-        title: 'Tecnologia que já usei em produção.',
+        title: 'Stack de produção',
         groups: [
           {
             title: 'Frontend & mobile',
@@ -343,7 +343,7 @@ const resources = {
         ],
       },
       contact: {
-        title: 'Se o produto importa, a execução também.',
+        title: 'Vamos falar da sua plataforma',
         text: 'Disponível para posições Senior Full Stack, Tech Lead, referência técnica ou consultoria de arquitetura.',
         email: 'nelsondaniel.dev@gmail.com',
       },

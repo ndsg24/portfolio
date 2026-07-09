@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowUpRight, MapPin, Mail, Sparkle } from 'lucide-react'
+import { ArrowUpRight, CheckCircle2, MapPin, Mail } from 'lucide-react'
 import { fadeUp, stagger } from '../lib/animation'
 
 function Hero({ t }) {
@@ -13,7 +13,8 @@ function Hero({ t }) {
         </motion.p>
         <motion.h1 variants={fadeUp}>
           Nelson Daniel
-          <span>Silva Gutierrez</span>
+          <span>Silva</span>
+          <span>Gutierrez</span>
         </motion.h1>
         <motion.div className="hero-meta" variants={fadeUp}>
           <span>
@@ -45,15 +46,16 @@ function Hero({ t }) {
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
         aria-label="Professional signal"
       >
-        <div className="operator-glow" />
         <div className="operator-head">
           <span>{t('hero.signalKicker')}</span>
           <strong>NDSG</strong>
         </div>
         <div className="operator-face">
           <div className="operator-initials">ND</div>
-          <div className="orbit-line orbit-one" />
-          <div className="orbit-line orbit-two" />
+          <div className="operator-status">
+            <span />
+            Architecture / Delivery / Team
+          </div>
         </div>
         <div className="operator-copy">
           <strong>{t('hero.signalMain')}</strong>
@@ -62,7 +64,7 @@ function Hero({ t }) {
         <div className="trait-list">
           {traits.map((trait) => (
             <span key={trait}>
-              <Sparkle size={13} aria-hidden="true" />
+              <CheckCircle2 size={13} aria-hidden="true" />
               {trait}
             </span>
           ))}

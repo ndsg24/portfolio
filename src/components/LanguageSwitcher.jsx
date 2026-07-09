@@ -9,8 +9,10 @@ function LanguageSwitcher({ currentLanguage, onChange }) {
           key={language.code}
           onClick={() => onChange(language.code)}
           type="button"
+          title={language.name}
         >
-          {language.label}
+          <span aria-hidden="true">{language.flag}</span>
+          <small>{language.label}</small>
         </button>
       ))}
     </div>

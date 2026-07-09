@@ -1,9 +1,15 @@
 import { MoveUpRight } from 'lucide-react'
 
 function Footer({ text }) {
+  const parts = text.split(' / ')
+
   return (
     <footer className="footer">
-      <span>{text}</span>
+      <div className="footer-tags">
+        {parts.map((part) => (
+          <span key={part}>{part}</span>
+        ))}
+      </div>
       <MoveUpRight size={16} aria-hidden="true" />
     </footer>
   )
