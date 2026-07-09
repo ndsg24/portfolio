@@ -39,6 +39,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background:
+    radial-gradient(circle at 22% 18%, rgba(202, 255, 40, 0.08), transparent 18rem),
     radial-gradient(circle at 80% 16%, rgba(21, 184, 255, 0.16), transparent 28rem),
     radial-gradient(circle at 10% 62%, rgba(202, 255, 40, 0.09), transparent 24rem),
     linear-gradient(145deg, #020305 0%, #05070b 48%, #020305 100%);
@@ -55,6 +56,20 @@ body::before {
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 72px 72px;
   mask-image: radial-gradient(circle at 50% 0%, black, transparent 68%);
+}
+
+body::after {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background:
+    repeating-linear-gradient(115deg, rgba(202, 255, 40, 0.035) 0 1px, transparent 1px 18px),
+    radial-gradient(circle at 70% 58%, rgba(21, 184, 255, 0.12), transparent 26rem);
+  opacity: 0.42;
+  mix-blend-mode: screen;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 78%, transparent 100%);
 }
 
 ::selection {
@@ -146,7 +161,6 @@ a {
 .button,
 .icon-link,
 .footer,
-.availability-chip,
 .hero-meta,
 .hero-meta span,
 .trait-list,
@@ -213,34 +227,16 @@ a {
   color: var(--ink);
 }
 
-.availability-chip {
-  gap: 8px;
-  min-height: 38px;
-  padding: 0 13px;
-  border: 1px solid rgba(202, 255, 40, 0.24);
-  border-radius: 999px;
-  color: var(--soft);
-  font-size: 0.84rem;
-  font-weight: 800;
-}
-
-.availability-chip span {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--lime);
-  box-shadow: 0 0 22px var(--lime);
-}
-
 .language-switcher {
+  position: relative;
   align-self: center;
-  gap: 4px;
   padding: 4px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.04);
 }
 
-.language-switcher button {
+.language-current,
+.language-menu button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -257,7 +253,8 @@ a {
   font-weight: 800;
 }
 
-.language-switcher button span {
+.language-current span,
+.language-menu button span {
   display: grid;
   width: 22px;
   height: 22px;
@@ -269,26 +266,54 @@ a {
   letter-spacing: 0.02em;
 }
 
-.language-switcher button small {
+.language-current small,
+.language-menu button small {
   font-size: 0.68rem;
 }
 
-.language-switcher button.active {
+.language-current {
   background: rgba(255, 255, 255, 0.08);
   color: var(--ink);
 }
 
-.language-switcher button.active span {
+.language-current span {
   border-color: transparent;
   background: var(--lime);
   color: var(--bg);
+}
+
+.language-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  display: grid;
+  gap: 6px;
+  min-width: 88px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(2, 3, 5, 0.94);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.38);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.language-switcher:hover .language-menu,
+.language-switcher:focus-within .language-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .nav-links a:focus-visible,
 .button:focus-visible,
 .icon-link:focus-visible,
 .language-switcher button:focus-visible,
-.availability-chip:focus-visible {
+.language-current:focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 4px;
 }
@@ -342,12 +367,17 @@ h1 {
 }
 
 .title-outline {
-  color: #dfe4ec;
-  line-height: 0.86;
-  letter-spacing: -0.035em;
-  color: transparent;
-  -webkit-text-stroke: clamp(1px, 0.12vw, 1.6px) rgba(223, 228, 236, 0.82);
-  paint-order: stroke fill;
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: 0.01em;
+  color: var(--bg);
+  text-shadow:
+    1px 0 0 rgba(223, 228, 236, 0.82),
+    -1px 0 0 rgba(223, 228, 236, 0.82),
+    0 1px 0 rgba(223, 228, 236, 0.82),
+    0 -1px 0 rgba(223, 228, 236, 0.82),
+    1px 1px 0 rgba(223, 228, 236, 0.55),
+    -1px -1px 0 rgba(223, 228, 236, 0.55);
 }
 
 .title-outline + .title-outline {
@@ -614,13 +644,13 @@ h1 {
 
 .work-section {
   display: grid;
-  grid-template-columns: minmax(280px, 0.42fr) 1fr;
+  grid-template-columns: minmax(260px, 0.34fr) minmax(0, 1fr);
   gap: clamp(34px, 6vw, 84px);
   align-items: start;
 }
 
 .section-heading {
-  max-width: 780px;
+  max-width: 430px;
 }
 
 .section-heading.pinned {
@@ -635,6 +665,11 @@ h2 {
   line-height: 0.92;
   letter-spacing: -0.04em;
   text-wrap: balance;
+}
+
+.work-section h2 {
+  max-width: 390px;
+  font-size: clamp(2.45rem, 4.2vw, 4.6rem);
 }
 
 .section-heading p:not(.eyebrow),
@@ -822,12 +857,37 @@ h2 {
 }
 
 .skill-rail span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   padding: 18px 26px;
   border-right: 1px solid var(--line);
   color: var(--ink);
   font-family: inherit;
   font-size: 0.88rem;
   white-space: nowrap;
+}
+
+.tech-logo,
+.tech-fallback {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+
+.tech-logo {
+  fill: var(--lime);
+  filter: drop-shadow(0 0 10px rgba(202, 255, 40, 0.18));
+}
+
+.tech-fallback {
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(202, 255, 40, 0.4);
+  border-radius: 50%;
+  color: var(--lime);
+  font-size: 0.62rem;
+  font-weight: 900;
 }
 
 .contact-band {
@@ -948,7 +1008,7 @@ h2 {
   }
 
   .brand strong,
-  .availability-chip {
+  .topbar-actions .availability-chip {
     display: none;
   }
 

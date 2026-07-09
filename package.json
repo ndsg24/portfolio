@@ -14,6 +14,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-i18next": "latest",
+    "simple-icons": "16.25.0",
     "vite": "latest"
   },
   "devDependencies": {

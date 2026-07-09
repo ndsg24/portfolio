@@ -14,10 +14,6 @@ function Header({ currentLanguage, isCompact, onLanguageChange, t }) {
         <a href="#contact">{t('nav.contact')}</a>
       </nav>
       <div className="topbar-actions">
-        <a className="availability-chip" href="#contact">
-          <span />
-          {t('nav.available')}
-        </a>
         <LanguageSwitcher currentLanguage={currentLanguage} onChange={onLanguageChange} />
       </div>
     </header>

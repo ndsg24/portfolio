@@ -1,5 +1,20 @@
 import { motion } from 'framer-motion'
 import { fadeUp, stagger } from '../lib/animation'
+import { techLogos } from '../lib/techLogos'
+
+function TechLogo({ name }) {
+  const logo = techLogos[name]
+
+  if (!logo) {
+    return <span className="tech-fallback">{name.slice(0, 2).toUpperCase()}</span>
+  }
+
+  return (
+    <svg aria-hidden="true" className="tech-logo" viewBox="0 0 24 24">
+      <path d={logo.path} />
+    </svg>
+  )
+}
 
 function StackSection({ groups, t }) {
   const skills = groups.flatMap((group) => group.items)
@@ -31,7 +46,10 @@ function StackSection({ groups, t }) {
       <motion.div className="skill-rail" variants={fadeUp}>
         <div>
           {marqueeSkills.map((skill, index) => (
-            <span key={`${skill}-${index}`}>{skill}</span>
+            <span key={`${skill}-${index}`}>
+              <TechLogo name={skill} />
+              {skill}
+            </span>
           ))}
         </div>
       </motion.div>
