@@ -1,8 +1,8 @@
 import LanguageSwitcher from './LanguageSwitcher'
 
-function Header({ currentLanguage, onLanguageChange, t }) {
+function Header({ currentLanguage, isCompact, onLanguageChange, t }) {
   return (
-    <header className="topbar">
+    <header className={`topbar ${isCompact ? 'compact' : 'full'}`}>
       <a className="brand" href="#home" aria-label="Nelson Daniel Silva Gutierrez">
         <span>NDSG</span>
         <strong>Nelson Daniel</strong>
@@ -13,11 +13,13 @@ function Header({ currentLanguage, onLanguageChange, t }) {
         <a href="#stack">{t('nav.stack')}</a>
         <a href="#contact">{t('nav.contact')}</a>
       </nav>
-      <a className="availability-chip" href="#contact">
-        <span />
-        {t('nav.available')}
-      </a>
-      <LanguageSwitcher currentLanguage={currentLanguage} onChange={onLanguageChange} />
+      <div className="topbar-actions">
+        <a className="availability-chip" href="#contact">
+          <span />
+          {t('nav.available')}
+        </a>
+        <LanguageSwitcher currentLanguage={currentLanguage} onChange={onLanguageChange} />
+      </div>
     </header>
   )
 }

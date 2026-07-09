@@ -92,26 +92,55 @@ a {
 
 .topbar {
   position: sticky;
-  top: 14px;
+  top: 0;
   z-index: 50;
   display: grid;
-  grid-template-columns: auto minmax(360px, 1fr) auto auto;
+  grid-template-columns: minmax(180px, 1fr) auto minmax(250px, 1fr);
   align-items: center;
   gap: 12px;
+  width: 100vw;
+  margin: 0 0 0 calc(50% - 50vw);
+  min-height: 66px;
+  padding: 10px max(16px, calc((100vw - 1260px) / 2 + 16px));
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: rgba(2, 3, 5, 0.74);
+  box-shadow: none;
+  backdrop-filter: blur(18px);
+  transition:
+    top 220ms ease,
+    width 220ms ease,
+    margin 220ms ease,
+    padding 220ms ease,
+    border 220ms ease,
+    border-radius 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.topbar.compact {
+  top: 14px;
   width: min(1120px, 100%);
   margin: 14px auto 0;
-  min-height: 66px;
+  grid-template-columns: auto minmax(360px, 1fr) auto;
   padding: 8px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(2, 3, 5, 0.74);
   box-shadow: 0 20px 80px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(18px);
+}
+
+.topbar.full .brand {
+  justify-self: start;
+}
+
+.topbar.full .nav-links {
+  justify-self: center;
 }
 
 .brand,
 .nav-links,
 .language-switcher,
+.topbar-actions,
 .hero-actions,
 .contact-actions,
 .button,
@@ -124,6 +153,11 @@ a {
 .trait-list span {
   display: flex;
   align-items: center;
+}
+
+.topbar-actions {
+  justify-self: end;
+  gap: 12px;
 }
 
 .brand {
@@ -294,19 +328,30 @@ h1 {
   margin-bottom: 18px;
   font-size: clamp(3.8rem, 8.2vw, 7.6rem);
   font-weight: 900;
-  line-height: 0.9;
+  line-height: 0.86;
   letter-spacing: -0.045em;
   text-wrap: balance;
 }
 
-h1 span {
+.hero-title span {
   display: block;
-  color: #dfe4ec;
-  -webkit-text-stroke: 0;
 }
 
-h1 span:last-child {
-  color: var(--soft);
+.title-given {
+  color: var(--ink);
+}
+
+.title-outline {
+  color: #dfe4ec;
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+  color: transparent;
+  -webkit-text-stroke: clamp(1px, 0.12vw, 1.6px) rgba(223, 228, 236, 0.82);
+  paint-order: stroke fill;
+}
+
+.title-outline + .title-outline {
+  margin-top: 0.02em;
 }
 
 .hero-meta {

@@ -11,10 +11,10 @@ function Hero({ t }) {
         <motion.p className="eyebrow" variants={fadeUp}>
           {t('hero.eyebrow')}
         </motion.p>
-        <motion.h1 variants={fadeUp}>
-          Nelson Daniel
-          <span>Silva</span>
-          <span>Gutierrez</span>
+        <motion.h1 className="hero-title" variants={fadeUp}>
+          <span className="title-given">Nelson Daniel</span>
+          <span className="title-outline">Silva</span>
+          <span className="title-outline">Gutierrez</span>
         </motion.h1>
         <motion.div className="hero-meta" variants={fadeUp}>
           <span>
