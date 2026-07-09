@@ -18,9 +18,7 @@
   --panel: rgba(255, 255, 255, 0.045);
   --panel-strong: rgba(255, 255, 255, 0.072);
   --lime: #caff28;
-  --blue: #15b8ff;
   --lime-dim: rgba(202, 255, 40, 0.14);
-  --blue-dim: rgba(21, 184, 255, 0.13);
   --mono: "Inter Tight", Inter, ui-sans-serif, system-ui, sans-serif;
   --radius: 24px;
 }
@@ -40,7 +38,7 @@ body {
   overflow-x: hidden;
   background:
     radial-gradient(circle at 22% 18%, rgba(202, 255, 40, 0.08), transparent 18rem),
-    radial-gradient(circle at 80% 16%, rgba(21, 184, 255, 0.16), transparent 28rem),
+    radial-gradient(circle at 80% 16%, rgba(202, 255, 40, 0.08), transparent 28rem),
     radial-gradient(circle at 10% 62%, rgba(202, 255, 40, 0.09), transparent 24rem),
     linear-gradient(145deg, #020305 0%, #05070b 48%, #020305 100%);
 }
@@ -66,7 +64,7 @@ body::after {
   content: "";
   background:
     repeating-linear-gradient(115deg, rgba(202, 255, 40, 0.035) 0 1px, transparent 1px 18px),
-    radial-gradient(circle at 70% 58%, rgba(21, 184, 255, 0.12), transparent 26rem);
+    radial-gradient(circle at 70% 58%, rgba(202, 255, 40, 0.08), transparent 26rem);
   opacity: 0.42;
   mix-blend-mode: screen;
   mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 78%, transparent 100%);
@@ -102,7 +100,7 @@ a {
   left: 0;
   z-index: 70;
   height: 2px;
-  background: linear-gradient(90deg, var(--lime), var(--blue));
+  background: linear-gradient(90deg, rgba(202, 255, 40, 0.2), var(--lime), rgba(202, 255, 40, 0.2));
 }
 
 .topbar {
@@ -187,7 +185,7 @@ a {
   height: 42px;
   place-items: center;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--lime), var(--blue));
+  background: linear-gradient(135deg, var(--lime), #f0ff9a);
   color: #020305;
   font-family: inherit;
   font-size: 0.68rem;
@@ -231,7 +229,7 @@ a {
   bottom: 7px;
   left: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--lime), var(--blue));
+  background: linear-gradient(90deg, rgba(202, 255, 40, 0.2), var(--lime), rgba(202, 255, 40, 0.2));
   content: "";
   opacity: 0;
   transform: scaleX(0.45);
@@ -337,7 +335,7 @@ a {
 .icon-link:focus-visible,
 .language-switcher button:focus-visible,
 .language-current:focus-visible {
-  outline: 2px solid var(--blue);
+  outline: 2px solid var(--lime);
   outline-offset: 4px;
 }
 
@@ -480,8 +478,8 @@ h1 {
 
 .button.secondary:hover,
 .icon-link:hover {
-  border-color: rgba(21, 184, 255, 0.75);
-  box-shadow: 0 0 34px rgba(21, 184, 255, 0.12);
+  border-color: rgba(202, 255, 40, 0.62);
+  box-shadow: 0 0 34px rgba(202, 255, 40, 0.08);
 }
 
 .operator-card {
@@ -530,7 +528,7 @@ h1 {
   border-bottom: 1px solid var(--line);
   background:
     linear-gradient(90deg, rgba(202, 255, 40, 0.08) 1px, transparent 1px),
-    linear-gradient(rgba(21, 184, 255, 0.07) 1px, transparent 1px);
+    linear-gradient(rgba(202, 255, 40, 0.055) 1px, transparent 1px);
   background-size: 44px 44px;
 }
 
@@ -546,7 +544,7 @@ h1 {
   font-size: 3.2rem;
   font-weight: 900;
   letter-spacing: -0.08em;
-  box-shadow: 0 0 80px rgba(21, 184, 255, 0.14);
+  box-shadow: 0 0 80px rgba(202, 255, 40, 0.12);
 }
 
 .operator-status {
@@ -569,7 +567,7 @@ h1 {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--blue);
+  background: var(--lime);
 }
 
 .operator-copy {
@@ -778,7 +776,7 @@ h2 {
   place-items: center;
   border: 1px solid var(--line);
   border-radius: 50%;
-  color: var(--blue);
+  color: var(--lime);
   font-size: 1.3rem;
 }
 
@@ -808,14 +806,14 @@ h2 {
 
 .principle-item:hover {
   transform: translateY(-3px);
-  border-color: rgba(21, 184, 255, 0.34);
+  border-color: rgba(202, 255, 40, 0.32);
   background: #0b0e13;
 }
 
 .principle-item span {
   display: block;
   margin-bottom: 28px;
-  color: var(--blue);
+  color: var(--lime);
   font-family: inherit;
   font-size: 0.74rem;
   font-weight: 800;
@@ -872,7 +870,7 @@ h2 {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   background:
-    linear-gradient(90deg, rgba(202, 255, 40, 0.055), rgba(21, 184, 255, 0.045)),
+    linear-gradient(90deg, rgba(202, 255, 40, 0.055), rgba(202, 255, 40, 0.035)),
     rgba(255, 255, 255, 0.018);
 }
 
@@ -911,9 +909,9 @@ h2 {
 .tech-fallback {
   display: grid;
   place-items: center;
-  border: 1px solid rgba(21, 184, 255, 0.5);
+  border: 1px solid rgba(202, 255, 40, 0.42);
   border-radius: 9px;
-  background: rgba(21, 184, 255, 0.08);
+  background: rgba(202, 255, 40, 0.07);
   color: var(--lime);
   font-size: 0.74rem;
   font-weight: 900;
