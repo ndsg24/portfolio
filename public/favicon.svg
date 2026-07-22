@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">NDSG favicon</title>
+  <desc id="desc">Lime and black monogram for Nelson Daniel Silva Gutierrez.</desc>
+  <defs>
+    <radialGradient id="halo" cx="30%" cy="22%" r="78%">
+      <stop offset="0" stop-color="#f0ff84"/>
+      <stop offset="0.42" stop-color="#caff28"/>
+      <stop offset="1" stop-color="#85d800"/>
+    </radialGradient>
+    <linearGradient id="cut" x1="96" x2="416" y1="94" y2="418" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#020305" stop-opacity="0"/>
+      <stop offset="0.46" stop-color="#020305" stop-opacity="0.92"/>
+      <stop offset="0.54" stop-color="#020305" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#020305" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="126" fill="#020305"/>
+  <path d="M62 374c54 50 120 76 199 76 82 0 146-27 193-82" fill="none" stroke="#caff28" stroke-width="2" opacity=".24"/>
+  <path d="M84 97h344v318H84z" fill="none" stroke="#caff28" stroke-width="2" opacity=".18"/>
+  <circle cx="256" cy="256" r="176" fill="url(#halo)"/>
+  <circle cx="256" cy="256" r="134" fill="#020305" opacity=".94"/>
+  <path d="M116 134 396 398" stroke="url(#cut)" stroke-width="30" stroke-linecap="round"/>
+  <text x="256" y="246" fill="#f7f8fb" font-family="Inter Tight, Arial Black, Arial, sans-serif" font-size="116" font-weight="900" letter-spacing="-10" text-anchor="middle">ND</text>
+  <text x="256" y="318" fill="#caff28" font-family="Inter Tight, Arial, sans-serif" font-size="46" font-weight="900" letter-spacing="7" text-anchor="middle">SG</text>
+</svg>

@@ -36,7 +36,7 @@ function Contact({ t }: ContactProps) {
           <LinkedInLogo />
           LinkedIn
         </a>
-        <a className="icon-link" href="https://github.com/" target="_blank" rel="noreferrer">
+        <a className="icon-link" href="https://github.com/ndsg24" target="_blank" rel="noreferrer">
           <GitHubLogo />
           GitHub
         </a>

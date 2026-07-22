@@ -1,0 +1,23 @@
+{
+  "name": "Nelson Daniel Silva Gutierrez",
+  "short_name": "NDSG",
+  "description": "Portfolio de Nelson Daniel Silva Gutierrez, Senior Full Stack Engineer y Tech Lead.",
+  "start_url": "/portfolio/",
+  "scope": "/portfolio/",
+  "display": "standalone",
+  "background_color": "#020305",
+  "theme_color": "#caff28",
+  "icons": [
+    {
+      "src": "/portfolio/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/portfolio/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
