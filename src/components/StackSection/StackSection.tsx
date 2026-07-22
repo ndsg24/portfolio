@@ -1,5 +1,6 @@
-import { memo, useMemo } from 'react'
+import { memo, type CSSProperties } from 'react'
 import { m } from 'framer-motion'
+import { Activity, Code2, DatabaseZap, ServerCog } from 'lucide-react'
 import { fadeUp, stagger } from '../../lib/animation'
 import { techLogos } from '../../lib/techLogos'
 import type { PortfolioTranslator, StackGroup } from '../../types'
@@ -37,6 +38,8 @@ const featuredSkills = [
   'Kubernetes',
 ]
 
+const groupIcons = [Code2, ServerCog, DatabaseZap, Activity]
+
 type TechLogoProps = {
   name: string
 }
@@ -55,38 +58,12 @@ const TechLogo = memo(function TechLogo({ name }: TechLogoProps) {
   )
 })
 
-function getPreviewItems(items: string[]): string[] {
-  const logoItems = items.filter((item) => techLogos[item])
-  const sourceItems = logoItems.length >= 4 ? logoItems : items
-
-  return sourceItems.slice(0, 5)
-}
-
-type StackGroupView = StackGroup & {
-  previewItems: string[]
-  remainingItems: number
-}
-
 type StackSectionProps = {
   groups: StackGroup[]
   t: PortfolioTranslator
 }
 
 function StackSection({ groups, t }: StackSectionProps) {
-  const stackGroups = useMemo(
-    (): StackGroupView[] =>
-      groups.map((group) => {
-        const previewItems = getPreviewItems(group.items)
-
-        return {
-          ...group,
-          previewItems,
-          remainingItems: Math.max(group.items.length - previewItems.length, 0),
-        }
-      }),
-    [groups],
-  )
-
   return (
     <m.section
       className="section stack-section"
@@ -103,31 +80,42 @@ function StackSection({ groups, t }: StackSectionProps) {
         <m.h2 variants={fadeUp}>{t('stack.title')}</m.h2>
       </div>
       <m.div className="stack-board" variants={fadeUp}>
+        <div className="stack-live" aria-hidden="true">
+          <span /> {t('stack.status')}
+        </div>
         <div className="stack-core">
-          {featuredSkills.map((skill) => (
-            <span className="stack-core-item" key={skill}>
+          {featuredSkills.map((skill, index) => (
+            <span
+              className="stack-core-item"
+              key={skill}
+              style={{ '--skill-index': index } as CSSProperties}
+            >
               <TechLogo name={skill} />
               {skill}
             </span>
           ))}
         </div>
         <div className="stack-clusters">
-          {stackGroups.map((group) => (
-            <m.article className="stack-cluster" key={group.title} variants={fadeUp}>
-              <h3>{group.title}</h3>
-              <div className="stack-chip-grid">
-                {group.previewItems.map((skill) => (
-                  <span className="stack-chip" key={skill}>
-                    <TechLogo name={skill} />
-                    {skill}
-                  </span>
-                ))}
-                {group.remainingItems > 0 ? (
-                  <span className="stack-chip stack-chip-more">+{group.remainingItems}</span>
-                ) : null}
-              </div>
-            </m.article>
-          ))}
+          {groups.map((group, index) => {
+            const GroupIcon = groupIcons[index] || Code2
+
+            return (
+              <m.article className="stack-cluster" key={index} variants={fadeUp}>
+                <span className="stack-cluster-mark" aria-hidden="true">
+                  <GroupIcon size={18} />
+                </span>
+                <h3>{group.title}</h3>
+                <div className="stack-chip-grid">
+                  {group.items.map((skill, skillIndex) => (
+                    <span className="stack-chip" key={skillIndex}>
+                      <TechLogo name={skill} />
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </m.article>
+            )
+          })}
         </div>
       </m.div>
     </m.section>

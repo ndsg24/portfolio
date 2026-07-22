@@ -12,11 +12,19 @@ const resources = {
         stack: 'Stack',
         contact: 'Contacto',
         available: 'Disponible',
+        menuOpen: 'Abrir menú',
+        menuClose: 'Cerrar menú',
+        themeDark: 'Usar tema oscuro',
+        themeLight: 'Usar tema claro',
       },
       hero: {
         eyebrow: 'Senior Full Stack Engineer / Tech Lead',
         statement:
-          'Referente técnico para plataformas que no pueden fallar: retail, logística, marketplace, pricing, fidelización y operaciones LATAM.',
+          'Diseño, construyo y lidero soluciones full stack que conectan arquitectura, producto y equipos para resolver problemas reales de negocio.',
+        locationLabel: 'Ubicación',
+        roleLabel: 'Rol',
+        focusEyebrow: 'Arquitectura · Producto',
+        focusTitle: 'Software que se opera',
         ctaPrimary: 'Contactar',
         ctaSecondary: 'Ver experiencia',
         signalKicker: 'Actualmente',
@@ -31,8 +39,10 @@ const resources = {
         { value: 'LATAM', label: 'experiencia en plataformas regionales de alto impacto' },
       ],
       work: {
+        current: 'Actual',
+        logLabel: 'Historial profesional',
+        rangeEnd: 'hoy',
         title: 'Experiencia técnica',
-        text: 'Rol, periodo y compañía. Sin relleno.',
       },
       roles: [
         {
@@ -110,6 +120,7 @@ const resources = {
         ],
       },
       stack: {
+        status: 'Listo para producción',
         title: 'Stack de producción',
         groups: [
           {
@@ -131,12 +142,12 @@ const resources = {
         ],
       },
       contact: {
+        backdrop: 'HABLEMOS',
         title: 'Hablemos de tu plataforma',
         text: 'Disponible para roles Senior Full Stack, Tech Lead, referente técnico o consultoría de arquitectura.',
-        cta: 'Escríbeme',
-        email: 'nelsondaniel.dev@gmail.com',
+        cta: 'Conversemos',
       },
-      footer: 'Concepción, Chile / Español nativo / Portugués C1 / Inglés B2',
+      footer: 'Vivo en Chile',
     },
   },
   en: {
@@ -147,11 +158,19 @@ const resources = {
         stack: 'Stack',
         contact: 'Contact',
         available: 'Available',
+        menuOpen: 'Open menu',
+        menuClose: 'Close menu',
+        themeDark: 'Use dark theme',
+        themeLight: 'Use light theme',
       },
       hero: {
         eyebrow: 'Senior Full Stack Engineer / Tech Lead',
         statement:
-          'Technical reference for platforms that cannot fail: retail, logistics, marketplaces, pricing, loyalty, and LATAM operations.',
+          'I design, build, and lead full-stack solutions that connect architecture, product, and teams to solve real business problems.',
+        locationLabel: 'Location',
+        roleLabel: 'Role',
+        focusEyebrow: 'Architecture · Product',
+        focusTitle: 'Software built to run',
         ctaPrimary: 'Contact',
         ctaSecondary: 'See experience',
         signalKicker: 'Currently',
@@ -166,8 +185,10 @@ const resources = {
         { value: 'LATAM', label: 'experience in high-impact regional platforms' },
       ],
       work: {
+        current: 'Current',
+        logLabel: 'Career history',
+        rangeEnd: 'now',
         title: 'Technical experience',
-        text: 'Role, period, and company. No filler.',
       },
       roles: [
         {
@@ -245,6 +266,7 @@ const resources = {
         ],
       },
       stack: {
+        status: 'Production ready',
         title: 'Production stack',
         groups: [
           {
@@ -266,12 +288,12 @@ const resources = {
         ],
       },
       contact: {
+        backdrop: 'LET’S TALK',
         title: 'Let’s talk about your platform',
         text: 'Available for Senior Full Stack, Tech Lead, technical reference, or architecture consulting roles.',
-        cta: 'Email me',
-        email: 'nelsondaniel.dev@gmail.com',
+        cta: 'Start a conversation',
       },
-      footer: 'Concepcion, Chile / Native Spanish / Portuguese C1 / English B2',
+      footer: 'Based in Chile',
     },
   },
   pt: {
@@ -282,11 +304,19 @@ const resources = {
         stack: 'Stack',
         contact: 'Contato',
         available: 'Disponível',
+        menuOpen: 'Abrir menu',
+        menuClose: 'Fechar menu',
+        themeDark: 'Usar tema escuro',
+        themeLight: 'Usar tema claro',
       },
       hero: {
         eyebrow: 'Senior Full Stack Engineer / Tech Lead',
         statement:
-          'Referência técnica para plataformas que não podem falhar: varejo, logística, marketplace, pricing, fidelização e operações LATAM.',
+          'Projeto, construo e lidero soluções full stack que conectam arquitetura, produto e times para resolver problemas reais de negócio.',
+        locationLabel: 'Localização',
+        roleLabel: 'Função',
+        focusEyebrow: 'Arquitetura · Produto',
+        focusTitle: 'Software feito para operar',
         ctaPrimary: 'Contato',
         ctaSecondary: 'Ver experiência',
         signalKicker: 'Atualmente',
@@ -301,8 +331,10 @@ const resources = {
         { value: 'LATAM', label: 'experiência em plataformas regionais de alto impacto' },
       ],
       work: {
+        current: 'Atual',
+        logLabel: 'Histórico profissional',
+        rangeEnd: 'hoje',
         title: 'Experiência técnica',
-        text: 'Cargo, período e empresa. Sem enchimento.',
       },
       roles: [
         {
@@ -380,6 +412,7 @@ const resources = {
         ],
       },
       stack: {
+        status: 'Pronto para produção',
         title: 'Stack de produção',
         groups: [
           {
@@ -401,12 +434,12 @@ const resources = {
         ],
       },
       contact: {
+        backdrop: 'VAMOS FALAR',
         title: 'Vamos falar da sua plataforma',
         text: 'Disponível para posições Senior Full Stack, Tech Lead, referência técnica ou consultoria de arquitetura.',
-        cta: 'Enviar email',
-        email: 'nelsondaniel.dev@gmail.com',
+        cta: 'Vamos conversar',
       },
-      footer: 'Concepción, Chile / Espanhol nativo / Português C1 / Inglês B2',
+      footer: 'Vivo no Chile',
     },
   },
 } satisfies Record<LanguageCode, { translation: TranslationResource }>

@@ -1,0 +1,19 @@
+.theme-switcher {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--panel);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.theme-switcher:hover {
+  background: var(--lime);
+  color: #020305;
+  transform: rotate(10deg);
+}

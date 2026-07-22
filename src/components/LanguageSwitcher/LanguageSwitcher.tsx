@@ -1,15 +1,16 @@
-import { memo, useMemo, useState } from 'react'
+import { memo, useEffect, useMemo, useRef, useState } from 'react'
 import { languages } from '../../lib/languages'
 import type { LanguageCode } from '../../types'
 import './LanguageSwitcher.css'
 
 type LanguageSwitcherProps = {
   currentLanguage: LanguageCode
-  onChange: (language: LanguageCode) => void
+  onChange: (language: LanguageCode) => void | Promise<void>
 }
 
 function LanguageSwitcher({ currentLanguage, onChange }: LanguageSwitcherProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const rootRef = useRef<HTMLDivElement>(null)
   const activeLanguage = useMemo(
     () => languages.find((language) => language.code === currentLanguage) || languages[0],
     [currentLanguage],
@@ -19,13 +20,31 @@ function LanguageSwitcher({ currentLanguage, onChange }: LanguageSwitcherProps) 
     [activeLanguage.code],
   )
 
-  const handleSelect = (language: LanguageCode) => {
-    onChange(language)
+  useEffect(() => {
+    if (!isOpen) return
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!rootRef.current?.contains(event.target as Node)) setIsOpen(false)
+    }
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsOpen(false)
+    }
+
+    document.addEventListener('pointerdown', handlePointerDown)
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown)
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isOpen])
+
+  const handleSelect = async (language: LanguageCode) => {
+    await onChange(language)
     setIsOpen(false)
   }
 
   return (
-    <div className="language-switcher">
+    <div className="language-switcher" ref={rootRef}>
       <button
         className="language-current"
         type="button"
@@ -41,7 +60,7 @@ function LanguageSwitcher({ currentLanguage, onChange }: LanguageSwitcherProps) 
         {otherLanguages.map((language) => (
           <button
             key={language.code}
-            onClick={() => handleSelect(language.code)}
+            onClick={() => void handleSelect(language.code)}
             role="menuitem"
             type="button"
             title={language.name}

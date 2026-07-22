@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   align-self: center;
+  font-family: var(--mono);
   padding: 4px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.04);
@@ -21,6 +22,7 @@
   background: transparent;
   color: var(--muted);
   cursor: pointer;
+  font-family: var(--mono);
   font-size: 0.72rem;
   font-weight: 800;
 }
@@ -74,8 +76,6 @@
     transform 160ms ease;
 }
 
-.language-switcher:hover .language-menu,
-.language-switcher:focus-within .language-menu,
 .language-menu.open {
   opacity: 1;
   pointer-events: auto;

@@ -1,18 +1,21 @@
 .topbar {
-  position: sticky;
+  position: absolute;
   top: 0;
   z-index: 50;
   display: grid;
-  grid-template-columns: minmax(180px, 1fr) auto minmax(250px, 1fr);
+  grid-template-columns: minmax(160px, 1fr) auto minmax(160px, 1fr);
   align-items: center;
   gap: 12px;
   width: 100vw;
   min-height: 82px;
-  margin: 0 0 0 calc(50% - 50vw);
-  padding: 14px max(18px, calc((100vw - 1260px) / 2 + 18px));
-  border-bottom: 1px solid var(--line);
-  background: rgba(2, 3, 5, 0.74);
-  backdrop-filter: blur(18px);
+  font-family: var(--mono);
+  left: calc(50% - 50vw);
+  margin: 0;
+  padding: 14px clamp(20px, 2.5vw, 48px);
+  border-bottom: 1px solid rgba(247, 248, 251, 0.08);
+  background: rgba(3, 6, 5, 0.38);
+  backdrop-filter: blur(18px) saturate(125%);
+  -webkit-backdrop-filter: blur(18px) saturate(125%);
   transition:
     padding 360ms cubic-bezier(0.22, 1, 0.36, 1),
     background 360ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -20,9 +23,14 @@
 }
 
 .topbar.compact {
+  position: fixed;
   min-height: 74px;
-  padding: 10px max(18px, calc((100vw - 1260px) / 2 + 18px));
-  background: rgba(2, 3, 5, 0.9);
+  left: 0;
+  padding: 10px clamp(20px, 2.5vw, 48px);
+  border-bottom-color: var(--line);
+  background: rgba(2, 3, 5, 0.76);
+  backdrop-filter: blur(22px) saturate(130%);
+  -webkit-backdrop-filter: blur(22px) saturate(130%);
   box-shadow: 0 16px 70px rgba(0, 0, 0, 0.22);
 }
 
@@ -31,6 +39,14 @@
 }
 
 .topbar.full .nav-links {
+  justify-self: center;
+}
+
+.topbar.compact .brand {
+  justify-self: start;
+}
+
+.topbar.compact .nav-links {
   justify-self: center;
 }
 
@@ -59,15 +75,21 @@
   height: 42px;
   place-items: center;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--lime), #f0ff9a);
-  color: #020305;
-  font-size: 0.68rem;
-  font-weight: 800;
+  overflow: hidden;
+  background: transparent;
+}
+
+.brand span img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .brand strong {
   color: var(--ink);
   font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: -0.035em;
 }
 
 .nav-links {
@@ -83,8 +105,9 @@
   min-height: 44px;
   color: #c9d0dc;
   font-size: 1rem;
-  font-weight: 850;
-  letter-spacing: -0.01em;
+  font-family: var(--mono);
+  font-weight: 800;
+  letter-spacing: -0.025em;
   transition:
     color 180ms ease,
     text-shadow 180ms ease;
@@ -105,20 +128,27 @@
     transform 180ms ease;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   color: var(--lime);
   text-shadow: 0 0 22px rgba(202, 255, 40, 0.18);
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
   opacity: 1;
   transform: scaleX(1);
+}
+
+.menu-toggle,
+.mobile-menu {
+  display: none;
 }
 
 @media (max-width: 1040px) {
   .topbar,
   .topbar.compact {
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: minmax(140px, 1fr) auto minmax(140px, 1fr);
     padding-right: 14px;
     padding-left: 14px;
   }
@@ -133,21 +163,31 @@
 }
 
 @media (max-width: 680px) {
-  .topbar {
+  .topbar,
+  .topbar.compact {
     grid-template-columns: minmax(0, 1fr) auto;
-    gap: 8px 12px;
-    min-height: 94px;
-    padding: 10px 12px 9px;
+    gap: 12px;
+  }
+
+  .topbar {
+    min-height: 76px;
+    padding: 10px 16px;
+    left: calc(50% - 50vw);
   }
 
   .topbar.compact {
-    min-height: 86px;
-    padding: 8px 12px;
+    min-height: 72px;
+    padding: 8px 16px;
+  }
+
+  .topbar.menu-open {
+    position: fixed;
+    left: 0;
+    border-bottom-color: rgba(247, 248, 251, 0.08);
+    background: rgba(2, 3, 5, 0.72);
   }
 
   .brand {
-    grid-row: 1;
-    grid-column: 1;
     min-width: 0;
     padding-right: 0;
   }
@@ -164,36 +204,97 @@
     white-space: nowrap;
   }
 
-  .nav-links {
-    grid-row: 2;
-    grid-column: 1 / -1;
-    justify-content: flex-start;
-    gap: 18px;
-    width: 100%;
-    min-width: 0;
-    overflow-x: auto;
-    padding: 0 2px 2px;
-    scrollbar-width: none;
-  }
-
-  .nav-links::-webkit-scrollbar {
+  .topbar > .nav-links,
+  .topbar-actions {
     display: none;
   }
 
-  .nav-links a {
-    min-height: 30px;
-    flex: 0 0 auto;
-    font-size: 0.84rem;
-    white-space: nowrap;
-  }
-
-  .nav-links a::after {
-    bottom: 2px;
-  }
-
-  .topbar-actions {
-    grid-row: 1;
+  .menu-toggle {
+    position: relative;
+    z-index: 52;
+    display: grid;
     grid-column: 2;
+    width: 44px;
+    height: 44px;
+    margin-left: auto;
+    place-items: center;
+    justify-self: end;
+    border: 1px solid rgba(247, 248, 251, 0.14);
+    border-radius: 50%;
+    background: rgba(247, 248, 251, 0.055);
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 116px 20px 28px;
+    background:
+      radial-gradient(circle, rgba(247, 248, 251, 0.085) 0 0.7px, transparent 0.9px),
+      linear-gradient(145deg, #020305, #07090d);
+    background-size: 9px 9px, auto;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-18px);
+    transition: opacity 260ms ease, transform 360ms cubic-bezier(0.22, 1, 0.36, 1), visibility 260ms;
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .mobile-menu-nav {
+    display: grid;
+  }
+
+  .mobile-menu-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 76px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    font-size: clamp(2rem, 10vw, 3.4rem);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+  }
+
+  .mobile-menu-nav a:first-child {
+    border-top: 1px solid var(--line);
+  }
+
+  .mobile-menu-nav svg {
+    color: var(--lime);
+  }
+
+  .mobile-menu-nav a.active {
+    color: var(--lime);
+  }
+
+  .mobile-menu-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+  }
+
+  .mobile-menu-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 }
 
@@ -203,6 +304,12 @@
   }
 
   .topbar {
-    min-height: 90px;
+    min-height: 72px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu {
+    transition: none;
   }
 }

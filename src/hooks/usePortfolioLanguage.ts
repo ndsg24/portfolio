@@ -6,7 +6,7 @@ import type { LanguageCode, PortfolioTranslator } from '../types'
 import { useDocumentLanguage } from './useDocumentLanguage'
 
 type PortfolioLanguageState = {
-  changeLanguage: (language: LanguageCode) => void
+  changeLanguage: (language: LanguageCode) => Promise<void>
   currentLanguage: LanguageCode
   t: PortfolioTranslator
 }
@@ -22,12 +22,12 @@ export function usePortfolioLanguage(): PortfolioLanguageState {
   useDocumentLanguage(currentLanguage)
 
   const changeLanguage = useCallback(
-    (language: LanguageCode) => {
+    async (language: LanguageCode) => {
       if (language === currentLanguage) {
         return
       }
 
-      void i18n.changeLanguage(language)
+      await i18n.changeLanguage(language)
       setStoredLanguage(language)
     },
     [currentLanguage, i18n],

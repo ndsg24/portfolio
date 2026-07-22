@@ -1,4 +1,5 @@
 export type LanguageCode = 'es' | 'en' | 'pt'
+export type ThemeCode = 'dark' | 'light'
 
 export type LanguageOption = {
   code: LanguageCode
@@ -54,8 +55,8 @@ export type Highlight = {
 
 export type TranslationResource = {
   contact: {
+    backdrop: string
     cta: string
-    email: string
     text: string
     title: string
   }
@@ -64,6 +65,10 @@ export type TranslationResource = {
     ctaPrimary: string
     ctaSecondary: string
     eyebrow: string
+    focusEyebrow: string
+    focusTitle: string
+    locationLabel: string
+    roleLabel: string
     signalKicker: string
     signalMain: string
     signalNote: string
@@ -74,6 +79,10 @@ export type TranslationResource = {
   nav: {
     available: string
     contact: string
+    menuClose: string
+    menuOpen: string
+    themeDark: string
+    themeLight: string
     principles: string
     stack: string
     work: string
@@ -85,10 +94,13 @@ export type TranslationResource = {
   roles: Role[]
   stack: {
     groups: StackGroup[]
+    status: string
     title: string
   }
   work: {
-    text: string
+    current: string
+    logLabel: string
+    rangeEnd: string
     title: string
   }
 }

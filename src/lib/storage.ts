@@ -1,7 +1,8 @@
 import { defaultLanguage, isLanguageCode } from './languages'
-import type { LanguageCode } from '../types'
+import type { LanguageCode, ThemeCode } from '../types'
 
 const LANGUAGE_STORAGE_KEY = 'language'
+const THEME_STORAGE_KEY = 'portfolio-theme-v2'
 
 export function getStoredLanguage(fallbackLanguage: LanguageCode = defaultLanguage): LanguageCode {
   try {
@@ -16,6 +17,25 @@ export function getStoredLanguage(fallbackLanguage: LanguageCode = defaultLangua
 export function setStoredLanguage(language: LanguageCode): void {
   try {
     localStorage.setItem(LANGUAGE_STORAGE_KEY, language)
+  } catch {
+    // Storage can be unavailable in restricted browser contexts.
+  }
+}
+
+export function getStoredTheme(): ThemeCode {
+  try {
+    const storedTheme = localStorage.getItem(THEME_STORAGE_KEY)
+    if (storedTheme === 'dark' || storedTheme === 'light') return storedTheme
+  } catch {
+    // Fall through to the system preference.
+  }
+
+  return window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+}
+
+export function setStoredTheme(theme: ThemeCode): void {
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, theme)
   } catch {
     // Storage can be unavailable in restricted browser contexts.
   }

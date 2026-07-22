@@ -13,10 +13,12 @@ type ExperienceProps = {
 const currentPeriodPattern = /actualidad|present|atual/i
 
 type TimelineRowProps = {
+  currentLabel: string
   role: Role
 }
 
 type ClientRowProps = {
+  currentLabel: string
   role: Role
 }
 
@@ -24,38 +26,45 @@ function isCurrentRole(role: Role): boolean {
   return currentPeriodPattern.test(role.period)
 }
 
-function TimelineRow({ role }: TimelineRowProps) {
+function TimelineRow({ currentLabel, role }: TimelineRowProps) {
+  const isCurrent = isCurrentRole(role)
+
   return (
     <m.article
       aria-label={`${role.company}: ${role.title}, ${role.period}`}
-      className={`career-node ${isCurrentRole(role) ? 'current' : ''}`}
-      key={`${role.company}-${role.period}`}
+      className={`career-node ${isCurrent ? 'current' : ''}`}
       variants={fadeUp}
     >
-      <span className="timeline-period">{role.period}</span>
-      <span className="timeline-pin" aria-hidden="true" />
       <CompanyMark company={role.company} />
       <div className="case-body">
-        <span>{role.company}</span>
+        <div className="case-meta">
+          <span>{role.company}</span>
+          {isCurrent ? <em>{currentLabel}</em> : null}
+        </div>
         <strong>{role.title}</strong>
+        <p>{role.text}</p>
       </div>
     </m.article>
   )
 }
 
-function ClientRow({ role }: ClientRowProps) {
+function ClientRow({ currentLabel, role }: ClientRowProps) {
+  const isCurrent = isCurrentRole(role)
+
   return (
     <m.article
       aria-label={`${role.company}: ${role.title}, ${role.period}`}
-      className={`client-node ${isCurrentRole(role) ? 'current' : ''}`}
-      key={`${role.company}-${role.period}`}
+      className={`client-node ${isCurrent ? 'current' : ''}`}
       variants={fadeUp}
     >
-      <span className="timeline-period">{role.period}</span>
       <CompanyMark company={role.company} />
       <div className="case-body">
-        <span>{role.company}</span>
+        <div className="case-meta">
+          <span>{role.company}</span>
+          {isCurrent ? <em>{currentLabel}</em> : null}
+        </div>
         <strong>{role.title}</strong>
+        <p>{role.text}</p>
       </div>
     </m.article>
   )
@@ -90,19 +99,23 @@ function Experience({ roles, t }: ExperienceProps) {
         viewport={{ once: true, amount: 0.18 }}
         variants={stagger}
       >
+        <div className="career-map-head" aria-hidden="true">
+          <span><i /> {t('work.logLabel')}</span>
+          <span>2019 — {t('work.rangeEnd')}</span>
+        </div>
         {consultancyRole ? (
           <m.div className="career-consultancy" variants={fadeUp}>
-            <TimelineRow role={consultancyRole} />
+            <TimelineRow currentLabel={t('work.current')} role={consultancyRole} />
             <div className="client-lane">
-              {clientRoles.map((role) => (
-                <ClientRow key={`${role.company}-${role.period}`} role={role} />
+              {clientRoles.map((role, index) => (
+                <ClientRow currentLabel={t('work.current')} key={index} role={role} />
               ))}
             </div>
           </m.div>
         ) : null}
 
-        {directRoles.map((role) => (
-          <TimelineRow key={`${role.company}-${role.period}`} role={role} />
+        {directRoles.map((role, index) => (
+          <TimelineRow currentLabel={t('work.current')} key={index} role={role} />
         ))}
       </m.div>
     </section>

@@ -67,3 +67,14 @@
 .company-mark.amaris img {
   max-width: 142px;
 }
+
+.theme-light .company-mark img {
+  filter: grayscale(1) contrast(1.12);
+}
+
+.theme-light .company-mark.amaris img,
+.theme-light .company-mark.esmax img,
+.theme-light .company-mark.cencosud img,
+.theme-light .company-mark.ripley img {
+  filter: brightness(0) contrast(1.15);
+}
