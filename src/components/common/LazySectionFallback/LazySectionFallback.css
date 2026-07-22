@@ -1,0 +1,16 @@
+.lazy-section-fallback {
+  display: grid;
+  gap: 16px;
+  min-height: 360px;
+}
+
+.lazy-section-fallback div {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background:
+    linear-gradient(110deg, transparent 0%, rgba(202, 255, 40, 0.08) 45%, transparent 70%),
+    rgba(255, 255, 255, 0.035);
+  background-size: 220% 100%;
+  animation: lazy-pulse 1.35s ease-in-out infinite;
+}
