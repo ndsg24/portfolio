@@ -6,7 +6,7 @@ import "./ScrollProgress.css";
 
 function ScrollProgress() {
   const { t } = usePortfolio();
-  const [activeSection, setActiveSection] = useActiveSection();
+  const { activeSection, setActiveSection } = useActiveSection();
   const sections = navigationItems.map((item) => ({
     href: item.href,
     label: t(item.labelKey),

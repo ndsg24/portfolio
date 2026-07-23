@@ -1,9 +1,24 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import { getStoredLanguage } from '../shared/lib/storage'
+import { getStoredLanguagePreference } from '../shared/lib/storage'
 import en from './locales/en'
 import es from './locales/es'
 import pt from './locales/pt'
+import { defaultLanguage, isLanguageCode } from './languages'
+
+function getInitialLanguage() {
+  const urlLanguage = new URL(window.location.href).searchParams.get('lang')
+  if (isLanguageCode(urlLanguage)) return urlLanguage
+
+  const storedLanguage = getStoredLanguagePreference()
+  if (storedLanguage) return storedLanguage
+
+  const browserLanguage = navigator.languages
+    ?.map((language) => language.split('-')[0])
+    .find(isLanguageCode)
+
+  return browserLanguage ?? defaultLanguage
+}
 
 export const resources = {
   en: { translation: en },
@@ -16,7 +31,7 @@ void i18n.use(initReactI18next).init({
   interpolation: {
     escapeValue: false,
   },
-  lng: getStoredLanguage(),
+  lng: getInitialLanguage(),
   resources,
 })
 

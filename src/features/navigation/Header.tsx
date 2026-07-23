@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { usePortfolio } from "../../app/providers/usePortfolio";
 import { useTheme } from "../../app/providers/useTheme";
@@ -17,8 +17,10 @@ function Header() {
   const { t } = usePortfolio();
   const { theme } = useTheme();
   const isCompact = useHeaderCompact();
-  const [activeSection, setActiveSection] = useActiveSection();
-  const menu = useMobileMenu();
+  const { activeSection, setActiveSection } = useActiveSection();
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const menu = useMobileMenu({ menuRef: mobileMenuRef, triggerRef: menuButtonRef });
 
   return (
     <>
@@ -50,6 +52,7 @@ function Header() {
           aria-label={t(menu.isOpen ? "nav.menuClose" : "nav.menuOpen")}
           className="menu-toggle"
           onClick={menu.toggle}
+          ref={menuButtonRef}
           type="button"
         >
           {menu.isOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
@@ -58,6 +61,7 @@ function Header() {
       <MobileNavigation
         activeSection={activeSection}
         isOpen={menu.isOpen}
+        menuRef={mobileMenuRef}
         onClose={menu.close}
         onNavigate={setActiveSection}
       />

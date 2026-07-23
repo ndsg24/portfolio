@@ -256,11 +256,23 @@
   border: 1px solid rgba(247, 248, 251, 0.28);
   background: rgba(3, 5, 5, 0.92);
   color: var(--ink);
-  animation: hero-contact-breathe 3.8s ease-in-out infinite;
   backdrop-filter: blur(14px);
   transition:
     border-color 180ms ease,
     transform 180ms ease;
+}
+
+.hero-contact-card::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border: 1px solid var(--lime);
+  content: "";
+  opacity: 0.16;
+  pointer-events: none;
+  transform: scale(0.985);
+  transform-origin: center;
+  animation: hero-contact-breathe 3.8s ease-in-out infinite;
 }
 
 .hero-contact-card::before {
@@ -279,8 +291,12 @@
 
 .hero-contact-card:hover {
   border-color: var(--lime);
-  animation-play-state: paused;
   transform: translateY(-5px);
+}
+
+.hero-contact-card:hover::after {
+  animation-play-state: paused;
+  opacity: 0.55;
 }
 
 .hero-contact-thumb {
@@ -322,14 +338,32 @@
 }
 
 .hero-contact-arrow {
+  position: relative;
   display: grid;
   width: 34px;
   height: 34px;
   place-items: center;
   background: var(--lime);
   color: var(--bg);
-  animation: hero-contact-pulse 3.2s ease-in-out infinite;
+  overflow: hidden;
   transition: transform 180ms ease;
+}
+
+.hero-contact-arrow::after {
+  position: absolute;
+  inset: -35%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.42);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.35);
+  animation: hero-contact-pulse 3.2s ease-in-out infinite;
+}
+
+.hero-contact-arrow svg {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-contact-card:hover .hero-contact-arrow {
@@ -362,39 +396,26 @@
 @keyframes hero-contact-pulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0);
+    opacity: 0;
+    transform: scale(0.35);
   }
 
   50% {
-    box-shadow: 0 0 22px rgba(var(--accent-rgb), 0.22);
+    opacity: 0.24;
+    transform: scale(1);
   }
 }
 
 @keyframes hero-contact-breathe {
   0%,
   100% {
-    border-color: rgba(247, 248, 251, 0.28);
-    box-shadow: 0 0 0 rgba(var(--accent-rgb), 0);
+    opacity: 0.12;
+    transform: scale(0.985);
   }
 
   50% {
-    border-color: rgba(var(--accent-rgb), 0.58);
-    box-shadow: 0 0 28px rgba(var(--accent-rgb), 0.1);
-  }
-}
-
-@keyframes hero-contact-breathe-light {
-  0%,
-  100% {
-    border-color: rgba(16, 18, 23, 0.18);
-    box-shadow: 0 18px 48px rgba(16, 18, 23, 0.1);
-  }
-
-  50% {
-    border-color: rgba(var(--accent-rgb), 0.62);
-    box-shadow:
-      0 18px 48px rgba(16, 18, 23, 0.1),
-      0 0 26px rgba(var(--accent-rgb), 0.12);
+    opacity: 0.48;
+    transform: scale(1);
   }
 }
 
@@ -403,7 +424,6 @@
   background: rgba(255, 255, 255, 0.94);
   box-shadow: 0 18px 48px rgba(16, 18, 23, 0.1);
   color: var(--ink);
-  animation-name: hero-contact-breathe-light;
 }
 
 [data-theme="light"] .hero-contact-card:hover {
@@ -614,7 +634,9 @@
   .hero-portrait-depth,
   .hero-contact-card,
   .hero-contact-card::before,
-  .hero-contact-arrow {
+  .hero-contact-card::after,
+  .hero-contact-arrow,
+  .hero-contact-arrow::after {
     animation: none;
     transition: none;
   }

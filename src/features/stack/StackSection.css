@@ -71,6 +71,7 @@
 }
 
 .stack-core-item {
+  position: relative;
   display: grid;
   min-height: 96px;
   place-items: center;
@@ -87,6 +88,19 @@
     transform 180ms ease,
     border-color 180ms ease,
     background 180ms ease;
+  overflow: hidden;
+}
+
+.stack-core-item::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--lime);
+  border-radius: inherit;
+  content: "";
+  opacity: 0.08;
+  pointer-events: none;
+  transform: scale(0.97);
+  transform-origin: center;
   animation: stack-breathe 5s ease-in-out infinite;
   animation-delay: calc(var(--skill-index) * -0.45s);
 }
@@ -213,11 +227,12 @@
 @keyframes stack-breathe {
   0%,
   100% {
-    border-color: rgba(var(--accent-rgb), 0.14);
+    opacity: 0.06;
+    transform: scale(0.97);
   }
   50% {
-    border-color: rgba(var(--accent-rgb), 0.34);
-    box-shadow: inset 0 0 24px rgba(var(--accent-rgb), 0.025);
+    opacity: 0.26;
+    transform: scale(1);
   }
 }
 
@@ -293,7 +308,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .stack-live span,
-  .stack-core-item {
+  .stack-core-item::after {
     animation: none;
   }
 

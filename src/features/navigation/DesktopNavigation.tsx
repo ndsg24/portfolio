@@ -10,7 +10,7 @@ export default function DesktopNavigation({ activeSection, onNavigate }: Desktop
   const { t } = usePortfolio()
 
   return (
-    <nav className="nav-links" aria-label="Primary navigation">
+    <nav className="nav-links" aria-label={t('nav.primaryNavigation')}>
       {navigationItems.map((item) => (
         <a
           aria-current={activeSection === item.href ? 'location' : undefined}

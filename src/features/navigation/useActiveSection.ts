@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { NavigationContext } from "./NavigationContext";
 import { navigationItems, type NavigationTarget } from "./navigation";
 
-export function useActiveSection(): [
+export function useActiveSectionState(): [
   NavigationTarget,
   (target: NavigationTarget) => void,
 ] {
@@ -44,4 +45,14 @@ export function useActiveSection(): [
   }, []);
 
   return [activeSection, setActiveSection];
+}
+
+export function useActiveSection() {
+  const context = useContext(NavigationContext);
+
+  if (!context) {
+    throw new Error("useActiveSection must be used inside NavigationProvider.");
+  }
+
+  return context;
 }

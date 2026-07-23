@@ -38,6 +38,10 @@ export type TranslationResource = {
     home: string;
     menuClose: string;
     menuOpen: string;
+    languageSelector: string;
+    mobileNavigation: string;
+    primaryNavigation: string;
+    skipContent: string;
     themeDark: string;
     themeLight: string;
     principles: string;

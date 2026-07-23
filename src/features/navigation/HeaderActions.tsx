@@ -25,7 +25,11 @@ export default function HeaderActions({ className = 'topbar-actions', onLanguage
         onToggle={toggleTheme}
         theme={theme}
       />
-      <LanguageSwitcher currentLanguage={currentLanguage} onChange={handleLanguageChange} />
+      <LanguageSwitcher
+        currentLanguage={currentLanguage}
+        label={t('nav.languageSelector')}
+        onChange={handleLanguageChange}
+      />
     </div>
   )
 }

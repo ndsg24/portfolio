@@ -11,13 +11,17 @@ const en = {
     available: "Available",
     menuOpen: "Open menu",
     menuClose: "Close menu",
+    languageSelector: "Select language",
+    mobileNavigation: "Mobile navigation",
+    primaryNavigation: "Primary navigation",
+    skipContent: "Skip to content",
     themeDark: "Use dark theme",
     themeLight: "Use light theme",
   },
   hero: {
     eyebrow: "Senior Full Stack Engineer · Tech Lead · Architecture",
     statement:
-      "I lead architecture and delivery for business platforms across LATAM, connecting technical decisions, product, and teams so software can scale without becoming unmanageable.",
+      "I lead business software across LATAM, connecting architecture, product, and teams to turn complex systems into sustainable delivery.",
     locationLabel: "Location",
     roleLabel: "Role",
     focusEyebrow: "Architecture · Product",
@@ -126,7 +130,7 @@ const en = {
         id: "architecture",
         kicker: "Architecture",
         title: "Practical architecture",
-        text: "Hexagonal architecture, DDD, and CQRS only when they reduce complexity and improve operations.",
+        text: "I design solutions that are easy to evolve, operate, and scale, without adding unnecessary complexity.",
       },
       {
         id: "full-stack",

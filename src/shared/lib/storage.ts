@@ -14,6 +14,15 @@ export function getStoredLanguage(fallbackLanguage: LanguageCode = defaultLangua
   }
 }
 
+export function getStoredLanguagePreference(): LanguageCode | null {
+  try {
+    const storedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY)
+    return isLanguageCode(storedLanguage) ? storedLanguage : null
+  } catch {
+    return null
+  }
+}
+
 export function setStoredLanguage(language: LanguageCode): void {
   try {
     localStorage.setItem(LANGUAGE_STORAGE_KEY, language)

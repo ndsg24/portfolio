@@ -11,13 +11,17 @@ const pt = {
     available: "Disponível",
     menuOpen: "Abrir menu",
     menuClose: "Fechar menu",
+    languageSelector: "Selecionar idioma",
+    mobileNavigation: "Navegação móvel",
+    primaryNavigation: "Navegação principal",
+    skipContent: "Pular para o conteúdo",
     themeDark: "Usar tema escuro",
     themeLight: "Usar tema claro",
   },
   hero: {
     eyebrow: "Senior Full Stack Engineer · Tech Lead · Arquitetura",
     statement:
-      "Lidero arquitetura e delivery de plataformas de negócio na LATAM, conectando decisões técnicas, produto e times para o software escalar sem se tornar incontrolável.",
+      "Lidero software de negócio na LATAM, conectando arquitetura, produto e times para transformar sistemas complexos em entregas sustentáveis.",
     locationLabel: "Localização",
     roleLabel: "Função",
     focusEyebrow: "Arquitetura · Produto",
@@ -132,7 +136,7 @@ const pt = {
         id: "architecture",
         kicker: "Arquitetura",
         title: "Arquitetura útil",
-        text: "Hexagonal, DDD e CQRS somente quando reduzem complexidade e melhoram a operação.",
+        text: "Desenho soluções fáceis de evoluir, operar e escalar, sem adicionar complexidade desnecessária.",
       },
       {
         id: "full-stack",

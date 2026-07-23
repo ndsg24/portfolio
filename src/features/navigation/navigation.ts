@@ -7,3 +7,7 @@ export const navigationItems = [
 ] as const;
 
 export type NavigationTarget = (typeof navigationItems)[number]["href"];
+
+export function isNavigationTarget(value: string): value is NavigationTarget {
+  return navigationItems.some((item) => item.href === value);
+}

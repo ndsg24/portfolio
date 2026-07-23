@@ -5,9 +5,11 @@ import type { ThemeCode } from '../../shared/types'
 function applyTheme(theme: ThemeCode) {
   const root = document.documentElement
   const favicon = document.querySelector<HTMLLinkElement>('link[rel="icon"]')
+  const themeColor = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')
 
   root.dataset.theme = theme
   root.style.colorScheme = theme
+  themeColor?.setAttribute('content', theme === 'light' ? '#ffffff' : '#020305')
   if (favicon) {
     favicon.href = `${import.meta.env.BASE_URL}${theme === 'light' ? 'favicon-light.svg' : 'favicon.svg'}`
   }
