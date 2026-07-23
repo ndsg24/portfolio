@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "Inter Tight";
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("/portfolio/fonts/inter-tight-latin.woff2") format("woff2");
+}
+
+:root {
+  color-scheme: dark;
+  font-family: "Inter Tight", Inter, ui-sans-serif, system-ui, sans-serif;
+  background: #020305;
+  color: #f7f8fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --bg: #020305;
+  --bg-2: #07090d;
+  --ink: #f7f8fb;
+  --muted: #838a96;
+  --soft: #c3cad6;
+  --line: rgba(247, 248, 251, 0.1);
+  --line-strong: rgba(247, 248, 251, 0.18);
+  --panel: rgba(255, 255, 255, 0.045);
+  --panel-strong: rgba(255, 255, 255, 0.072);
+  --lime: #caff28;
+  --lime-dim: rgba(var(--accent-rgb), 0.14);
+  --accent-rgb: 202, 255, 40;
+  --mono: "Inter Tight", Inter, ui-sans-serif, system-ui, sans-serif;
+  --radius: 24px;
+}
